@@ -1,9 +1,12 @@
 package com.job.anthologyweddingphotographyapp;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 /**
@@ -36,8 +39,25 @@ public class ImagesAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        TextView dummyTextView = new TextView(mContext);
-        dummyTextView.setText(String.valueOf(i));    //i is the position of item
-        return dummyTextView;
+
+        final WeddingImage im = weddingImages[i];
+
+        // 2
+        if (view == null) {
+            final LayoutInflater layoutInflater = LayoutInflater.from(mContext);
+            view = layoutInflater.inflate(R.layout.single_item, null);
+        }
+
+        //init views
+
+        final ImageView imageView = (ImageView)view.findViewById(R.id.single_image);
+        final TextView numTextView = (TextView)view.findViewById(R.id.single_num);
+
+        //assign
+
+        imageView.setImageDrawable(ContextCompat.getDrawable(mContext, im.getImgRes()));
+        numTextView.setText(im.getImgNum());
+
+        return view;
     }
 }
