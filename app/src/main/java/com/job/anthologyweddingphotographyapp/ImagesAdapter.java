@@ -6,7 +6,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
+import android.widget.FrameLayout;
 import android.widget.TextView;
 
 /**
@@ -24,12 +24,12 @@ public class ImagesAdapter extends BaseAdapter {
 
     @Override
     public int getCount() {
-        return 0;
+        return weddingImages.length;
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return weddingImages[i];
     }
 
     @Override
@@ -50,12 +50,13 @@ public class ImagesAdapter extends BaseAdapter {
 
         //init views
 
-        final ImageView imageView = (ImageView)view.findViewById(R.id.single_image);
+        final FrameLayout frView = (FrameLayout)view.findViewById(R.id.single_image);
         final TextView numTextView = (TextView)view.findViewById(R.id.single_num);
 
         //assign
 
-        imageView.setImageDrawable(ContextCompat.getDrawable(mContext, im.getImgRes()));
+        frView.setBackground(ContextCompat.getDrawable(mContext, im.getImgRes()));
+        //imageView.setImageDrawable(ContextCompat.getDrawable(mContext, im.getImgRes()));
         numTextView.setText(im.getImgNum());
 
         return view;
