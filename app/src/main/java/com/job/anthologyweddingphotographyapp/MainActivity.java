@@ -1,11 +1,16 @@
 package com.job.anthologyweddingphotographyapp;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 public class MainActivity extends AppCompatActivity {
 
+    public static final String IMNUMEXTRA = "IMNUMEXTRA";
+    public static final String IMNUMEXTRA = "IMNUMEXTRA";
     private ImagesAdapter imagesAdapter;
 
     @Override
@@ -19,6 +24,18 @@ public class MainActivity extends AppCompatActivity {
         imagesAdapter = new ImagesAdapter(this,addData());
         gridView.setAdapter(imagesAdapter);
 
+        gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+
+                WeddingImage[] images = addData();
+                WeddingImage  weddingImage = images[i]; //position of image
+
+                //intent to photo detail activity
+                Intent intent = new Intent(MainActivity.this,PhotoDetail.class);
+                intent.putExtra("")
+            }
+        });
     }
 
     private WeddingImage[] addData(){
