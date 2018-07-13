@@ -12,6 +12,13 @@ import android.widget.TextView;
 public class ImagesAdapter extends BaseAdapter {
 
     private Context mContext;
+    private WeddingImage[] weddingImages;
+
+    public ImagesAdapter(Context mContext, WeddingImage[] weddingImages) {
+        this.mContext = mContext;
+        this.weddingImages = weddingImages;
+    }
+
     @Override
     public int getCount() {
         return 0;
