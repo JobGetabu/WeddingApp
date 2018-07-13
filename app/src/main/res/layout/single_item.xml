@@ -26,12 +26,13 @@
         app:layout_constraintStart_toStartOf="@+id/single_image">
 
         <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/single_num"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="number"
             android:textAlignment="center"
-            android:textSize="16sp"
             android:textColor="#e2000000"
+            android:textSize="16sp"
             android:textStyle="bold" />
     </FrameLayout>
 </android.support.constraint.ConstraintLayout>
