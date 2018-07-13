@@ -9,8 +9,7 @@ import android.widget.GridView;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String IMNUMEXTRA = "IMNUMEXTRA";
-    public static final String IMNUMEXTRA = "IMNUMEXTRA";
+    public static final String IMEXTRA = "IMEXTRA";
     private ImagesAdapter imagesAdapter;
 
     @Override
@@ -33,7 +32,8 @@ public class MainActivity extends AppCompatActivity {
 
                 //intent to photo detail activity
                 Intent intent = new Intent(MainActivity.this,PhotoDetail.class);
-                intent.putExtra("")
+                intent.putExtra(IMEXTRA,weddingImage);
+                startActivity(intent);
             }
         });
     }
